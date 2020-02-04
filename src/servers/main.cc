@@ -260,7 +260,8 @@ std::vector<Option> options_
       {OPTION_ALLOW_GRPC, "allow-grpc",
        "Allow the server to listen for GRPC requests."},
       {OPTION_GRPC_API_VERSION, "grpc-api-version",
-       "Version of the GRPC API to use. Default is version 1. Allowed versions are 1 and 2."},
+       "Version of the GRPC API to use. Default is version 1. Allowed versions "
+       "are 1 and 2."},
       {OPTION_GRPC_PORT, "grpc-port",
        "The port for the server to listen on for GRPC requests."},
       {OPTION_GRPC_INFER_THREAD_COUNT, "grpc-infer-thread-count",
@@ -444,8 +445,8 @@ StartGrpcServiceV2(
         smb_manager)
 {
   TRTSERVER_Error* err = nvidia::inferenceserver::GRPCServerV2::Create(
-      server, trace_manager, smb_manager, grpc_port_, grpc_infer_thread_cnt_,
-      grpc_stream_infer_thread_cnt_, grpc_infer_allocation_pool_size_, service);
+      server, trace_manager, smb_manager, grpc_port_,
+      grpc_infer_allocation_pool_size_, service);
   if (err == nullptr) {
     err = (*service)->Start();
   }
